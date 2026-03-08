@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart To-Do Calendar | EzMart Pro</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div class="glass-container">
+        <header class="main-header">
+            <h1>✨ Smart To-Do List <span>Calendar</span></h1>
+            <p>Organize your day with style</p>
+        </header>
+
+        <div class="content-wrapper">
+            <section class="main-box">
+                <div class="calendar-nav">
+                    <button id="prevMonth">◀</button>
+                    <h2 id="monthDisplay">March 2026</h2>
+                    <button id="nextMonth">▶</button>
+                </div>
+
+                <div class="weekdays-row">
+                    <div>Sun</div>
+                    <div>Mon</div>
+                    <div>Tue</div>
+                    <div>Wed</div>
+                    <div>Thu</div>
+                    <div>Fri</div>
+                    <div>Sat</div>
+                </div>
+
+                <div id="calendarDays" class="days-grid"></div>
+            </section>
+
+            <section class="main-box task-section">
+                <div class="status-bar">
+                    <h3 id="selectedDateText">📅 Select a Date</h3>
+                    <div class="filters">
+                        <button onclick="filterTasks('all')" class="filter-btn active">All</button>
+                        <button onclick="filterTasks('pending')" class="filter-btn">Pending</button>
+                        <button onclick="filterTasks('completed')" class="filter-btn">Done</button>
+                    </div>
+                </div>
+
+                <form id="taskForm" class="task-input-card hidden">
+                    <div class="input-group">
+                        <input type="text" id="taskTitle" placeholder="Task Title" required>
+                        <select id="taskPriority">
+                            <option value="Low">Low</option>
+                            <option value="Medium" selected>Medium</option>
+                            <option value="High">High</option>
+                        </select>
+                    </div>
+                    <textarea id="taskDesc" placeholder="Add Task Description..."></textarea>
+                    <div class="input-group">
+                        <input type="time" id="taskTime">
+                        <button type="submit" class="add-btn">Add Task +</button>
+                    </div>
+                </form>
+
+                <div id="taskList" class="task-scroll-area"></div>
+            </section>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>

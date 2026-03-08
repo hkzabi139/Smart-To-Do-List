@@ -15,7 +15,7 @@ Ye ek advanced **Interactive To-Do List Calendar** hai jo user ko apne daily tas
 
 | Platform | Link |
 | :--- | :--- |
-| **🚀 Live Demo (Netlify)** | [View Netlify Live Project link](zabaikh-ullah.netlify.app) |
+| **🚀 Live Demo (Netlify)** | [View Netlify Live Project link](https://zabaikh-ullah.netlify.app) |
 | **🚀 Live Demo (GitHub)** | [View GitHub live Project link](https://hkzabi139.github.io/Smart-To-Do-List/) |
 
 ---

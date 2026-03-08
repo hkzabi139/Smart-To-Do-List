@@ -32,13 +32,11 @@ function renderCalendar() {
     }
 }
 
-// Requirement: Form visible only when date is clicked
 window.selectDate = (date) => {
     selectedDate = date;
     const displayDate = new Date(date).toDateString();
     selectedDateText.innerText = `Tasks for: ${displayDate}`;
 
-    // Show form
     taskForm.classList.remove('hidden');
 
     renderCalendar();
@@ -48,12 +46,11 @@ window.selectDate = (date) => {
 taskForm.onsubmit = (e) => {
     e.preventDefault();
 
-    // Fix: Capturing all fields including Description
     const newTask = {
         id: Date.now(),
         date: selectedDate,
         title: document.getElementById('taskTitle').value,
-        description: document.getElementById('taskDesc').value, // Description field
+        description: document.getElementById('taskDesc').value,
         priority: document.getElementById('taskPriority').value,
         time: document.getElementById('taskTime').value || "No time",
         status: 'pending'
@@ -67,8 +64,6 @@ taskForm.onsubmit = (e) => {
 function renderTasks(filter = 'all') {
     taskList.innerHTML = '';
 
-    // Step 1: Pehle selected date ke tasks nikalna
-    // Step 2: Phir filter check karna (all, pending, ya completed)
     const filtered = tasks.filter(t => {
         const isSameDate = t.date === selectedDate;
         if (filter === 'all') return isSameDate;
@@ -80,7 +75,6 @@ function renderTasks(filter = 'all') {
         return;
     }
 
-    // Step 3: Tasks ko display karna
     filtered.forEach(t => {
         const isDone = t.status === 'completed';
 
@@ -101,13 +95,11 @@ function renderTasks(filter = 'all') {
     });
 }
 
-// Filter buttons ke liye active class switch karna
 window.filterTasks = (type) => {
-    // Buttons ka color change karne ke liye
+
     document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
     event.target.classList.add('active');
 
-    // Tasks ko filter karke dikhana
     renderTasks(type === 'completed' ? 'completed' : (type === 'pending' ? 'pending' : 'all'));
 };
 window.toggleStatus = (id) => {
@@ -132,8 +124,8 @@ function save() {
     renderTasks();
 }
 
-// Nav buttons
 document.getElementById('prevMonth').onclick = () => { currentMonth--; if (currentMonth < 0) { currentMonth = 11; currentYear--; } renderCalendar(); };
 document.getElementById('nextMonth').onclick = () => { currentMonth++; if (currentMonth > 11) { currentMonth = 0; currentYear++; } renderCalendar(); };
+
 
 renderCalendar();
